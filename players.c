@@ -13,12 +13,19 @@
 // Returns true if the player name matches one of the existing players
 bool player_exists(struct player *players, int num_players, char *name)
 {
+    if(players.name == name){
+        return true;
+    }
+    else{
     return false;
+    }
 }
 
 // Go through the list of players and update the score for the 
 // player given their name
 void update_score(struct player *players, int num_players, char *name, int score)
 {
-    
+    for(int i=0; i<num_players; i++){
+        players[i].score = score;
+    }
 }
