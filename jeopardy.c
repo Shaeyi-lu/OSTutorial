@@ -85,6 +85,7 @@ int main(int argc, char *argv[])
         // Execute the game until all questions are answered
 
         // Display the final results and exit
+        show_results(struct player *players, int num_players);
     }
     return EXIT_SUCCESS;
 }
