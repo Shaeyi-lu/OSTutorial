@@ -44,6 +44,10 @@ int main(int argc, char *argv[])
 {
     // An array of 4 players, may need to be a pointer if you want it set dynamically
     struct player players[NUM_PLAYERS];
+    
+    char name[100];
+    
+    
 
     // EXAMPLE: player 1 is named Fred
 	// players[0].name = "Fred";
@@ -57,8 +61,13 @@ int main(int argc, char *argv[])
     initialize_game();
 
     // Prompt for players names
+    printf("Enter name: ");
+    scanf("%s", name);
     
     // initialize each of the players in the array
+    for(int i = 0; i<NUM_PLAYERS; i++){
+      strcpy(players[i].name, name);
+    }
 
     // Perform an infinite loop getting command input from users until game ends
     game_state = 1;
