@@ -66,7 +66,9 @@ int main(int argc, char *argv[])
     
     // initialize each of the players in the array
     for(int i = 0; i<NUM_PLAYERS; i++){
-      strcpy(players[i].name, name);
+      strcpy(players[i].name, name); //names of players
+      strcpy(players[i].score, 0); //assigns players earnings to 0
+      
     }
 
     // Perform an infinite loop getting command input from users until game ends
