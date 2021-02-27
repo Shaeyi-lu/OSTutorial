@@ -13,7 +13,7 @@
 // Returns true if the player name matches one of the existing players
 bool player_exists(struct player *players, int num_players, char *name)
 {
-    if(players.name == name){
+    if(strcmp(players.name, name == 0)) {
         return true;
     }
     else{
@@ -26,6 +26,8 @@ bool player_exists(struct player *players, int num_players, char *name)
 void update_score(struct player *players, int num_players, char *name, int score)
 {
     for(int i=0; i<num_players; i++){
-        players[i].score = score;
+        if(strcmp(players[i].name, name == 0)){
+            players[i].score += score;
+        }
     }
 }
