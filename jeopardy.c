@@ -69,10 +69,11 @@ int main(int argc, char *argv[])
 
     // Display the game introduction and initialize the questions
     initialize_game();
+    
 
     // Prompt for players names
     printf("Enter name: ");
-    scanf("%s", name);
+    scanf("%s", &name);
     
     // initialize each of the players in the array
     for(int i = 0; i<NUM_PLAYERS; i++){
@@ -92,10 +93,30 @@ int main(int argc, char *argv[])
 		if (strcmp(buffer, "hello") == 0) printf(":)\n");
 		if (strcmp(buffer, "world\n") == 0) printf(":)\n"); 
 
-        // Call functions from the questions and players source files
+        
 
         // Execute the game until all questions are answered
+        while(all_questions_answered() != true){
 
+            for(int i=0; i<NUM_PLAYERS; i++){//allows each player a turn
+
+            // Call functions from the questions and players source files
+
+            //this function starts a sequence of other functions calling each other
+            //so calling other functions is not needed
+            player_choose_question(); //last thing returned is if player's answer is correct or not
+
+                if(players_answer()== true){
+                    update_score(players, num_players, players[i].name, score);//updates player's score
+
+                }
+
+            }
+
+
+        }
+        
+        
         // Display the final results and exit
         show_results(struct player *players, int num_players);
     }

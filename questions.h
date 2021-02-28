@@ -45,10 +45,19 @@ extern void display_categories(void);
 // Displays the question for the category and dollar value
 extern void display_question(char *category, int value);
 
+//asks players input for question
+extern void player_choose_question(void);
+
+//asks for player's answer
+extern void players_answer(int num, char *category, int value);
+
 // Returns true if the answer is correct for the question for that category and dollar value
 extern bool valid_answer(char *category, int value, char *answer);
 
 // Returns true if the question has already been answered
 extern bool already_answered(char *category, int value);
+
+//checks if ALL questions have been answered
+extern bool all_questions_answered(void);
 
 #endif /* QUESTIONS_H_ */

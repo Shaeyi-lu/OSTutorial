@@ -16,6 +16,7 @@ int value = 0;
 char category[MAX_LEN] = "category";
 char answer[MAX_LEN];
 
+
 // Initializes the array of questions for the game
 void initialize_game(void)
 {
@@ -145,28 +146,32 @@ void display_question(char *category, int value)
         for(int i = 0; i<num_questions; i++){
              if(category == questions[i].category && questions[i].value == value){
             printf(questions[i].question)//prints question chosen
-            return i;
+             players_answer(i);//calls function to get player's answer
+          
             }
 
         }
 
     }
-    players_answer(i, category, value);
+   
 
 	
 
 }
-void players_answer(int num, char *category, int value,){//player answers question
+bool players_answer(int num){//player answers question
     printf("What is your answer?");
     scanf("Answer: %s ", &answer);
 
     if(strcmp(answer, questions[num].answer)){ //validates players answer
         printf("correct answer");
         
+        return true;
+        
     }
 
 
 }
+
 
 /* Returns true if the answer is correct for the question for that category and dollar value
 bool valid_answer(char *category, int value, char *answer)
@@ -194,4 +199,19 @@ bool already_answered(char *category, int value)
     }
     
     
+}
+
+bool all_questions_answered(void){//confirms is all questions have been answered
+    for(int i=0; i<num_questions; i++){
+        if(questions[i].answered == true){
+            print("All questions have been answered");
+            return true;
+            
+        }
+        else{
+            return false;
+            break;
+
+        }
+    }
 }
