@@ -18,12 +18,22 @@
 #define NUM_PLAYERS 4
 
 // Put global environment variables here
+int numPlayers = 4;
+int scores[4];
 
 // Processes the answer from the user containing what is or who is and tokenizes it to retrieve the answer.
 void tokenize(char *input, char **tokens);
 
 // Displays the game results for each player, their name and final score, ranked from first to last place
-void show_results(struct player *players, int num_players);
+void show_results(struct player *players, int num_players){
+    for(int j =0; j<num_players; j++){
+        for(int i=0; i<num_players; i++){
+
+         printf("Score of %s: %d\n", players[i].name,player[i].score);
+        }
+    }
+   
+};
 
 int game_state;
 
@@ -45,7 +55,7 @@ int main(int argc, char *argv[])
     // An array of 4 players, may need to be a pointer if you want it set dynamically
     struct player players[NUM_PLAYERS];
     
-    char name[100];
+    char name[MAX_LENGTH];
     
     
 
@@ -67,7 +77,7 @@ int main(int argc, char *argv[])
     // initialize each of the players in the array
     for(int i = 0; i<NUM_PLAYERS; i++){
       strcpy(players[i].name, name); //names of players
-      strcpy(players[i].score, 0); //assigns players earnings to 0
+        players[i].score = 0; //assigns players earnings to 0
       
     }
 
@@ -80,7 +90,7 @@ int main(int argc, char *argv[])
         printf("[before]%s[after]", buffer);
 
 		if (strcmp(buffer, "hello") == 0) printf(":)\n");
-		if (strcmp(buffer, "world\n") == 0) printf(":)\n");
+		if (strcmp(buffer, "world\n") == 0) printf(":)\n"); 
 
         // Call functions from the questions and players source files
 
